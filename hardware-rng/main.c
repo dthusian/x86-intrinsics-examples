@@ -20,5 +20,6 @@ int main() {
     putchar(hexlookup[upper]);
   }
   printf("\n");
+  free(nonce);
   return 0;
 }
