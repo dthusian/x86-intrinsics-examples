@@ -10,10 +10,12 @@ _rdrand16_step
 _rdrand32_step
 _rdrand64_step
 ```
-
-Function Documentation: See `rdrand.h` for details.
+Required CPUID: `RDRAND`
 
 ## Notes
 
 The RNG can only output roughly 800 MB/s. It will begin to slow down if it is nearing that point.
-You must target x64, or else the `_rdrand64_step` function won't exist.
+You must target x64, or else the `_rdrand64_step` function won't exist. The performance of these
+intrinsics is terrible compared to pseudo-random number generators like xoroshiro128+ or
+Mersenne Twister. For random number generation in games or other high-performance non-security
+based applications, it's better to use a PRNG.

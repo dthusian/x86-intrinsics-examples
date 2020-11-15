@@ -9,7 +9,7 @@
 /// <returns>
 /// The generated integer.
 /// </returns>
-uint16_t x86rand_next_uint16();
+uint16_t rand_next_uint16();
 
 /// <summary>
 /// Uses hardware to generate an unsigned 32-bit integer.
@@ -17,7 +17,7 @@ uint16_t x86rand_next_uint16();
 /// <returns>
 /// The generated integer.
 /// </returns>
-uint32_t x86rand_next_uint32();
+uint32_t rand_next_uint32();
 
 /// <summary>
 /// Uses hardware to generate an unsigned 64-bit integer.
@@ -25,7 +25,7 @@ uint32_t x86rand_next_uint32();
 /// <returns>
 /// The generated integer.
 /// </returns>
-uint64_t x86rand_next_uint64();
+uint64_t rand_next_uint64();
 
 /// <summary>
 /// Uses hardware random number generation to fill a buffer with random byte values.
@@ -36,7 +36,7 @@ uint64_t x86rand_next_uint64();
 /// <param name="size">
 /// The size of the buffer to fill, measured IN BYTES.
 /// </param>
-void x86rand_fill_buffer(uint8_t* buf, size_t size);
+void rand_fill_buffer(uint8_t* buf, size_t size);
 
 /// <summary>
 /// Uses hardware random number generation to fill a buffer with random byte values.
@@ -49,6 +49,6 @@ void x86rand_fill_buffer(uint8_t* buf, size_t size);
 /// <param name="size">
 /// The size of the buffer to fill, measured IN BYTES.
 /// </param>
-void x86rand_fill_buf_align32(uint32_t* buf, size_t size);
+void rand_fill_buf_align32(uint32_t* buf, size_t size);
 
 #endif
