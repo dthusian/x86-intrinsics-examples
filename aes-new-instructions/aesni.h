@@ -50,4 +50,13 @@ struct aes128_result aes128_ctr_encrypt(uint8_t* plaintext, size_t text_size, ui
 /// </returns>
 struct aes128_result aes128_ctr_decrypt(uint8_t* ciphertext, size_t text_size, uint8_t* key, uint8_t* iv);
 
+/// <summary>
+/// Frees the memory held by a aes128_result struct.
+/// This should always be done on an aes128_result before it goes out of scope.
+/// </summary>
+/// <param name="res">
+/// The aes128_result struct to be freed.
+/// </param>
+void aes128_free_struct(struct aes128_result res);
+
 #endif
