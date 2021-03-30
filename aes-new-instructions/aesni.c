@@ -27,6 +27,8 @@ void aes128_encrypt_block(uint8_t* block, uint8_t* key, uint8_t* out) {
 }
 
 struct aes128_result aes128_ctr_encrypt(uint8_t* plaintext, size_t text_size, uint8_t* key, uint8_t* iv) {
+  // Add padding
+  uint8_t padded_plaintext = (text_size + 16) & (~0xF);
   
 }
 

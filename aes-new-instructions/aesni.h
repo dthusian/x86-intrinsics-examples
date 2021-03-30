@@ -28,7 +28,7 @@ struct aes128_result {
 /// <returns>
 /// The encrypted ciphertext.
 /// </returns>
-struct aes128_result aes128_ctr_encrypt(uint8_t* plaintext, size_t text_size, uint8_t* key, uint8_t* iv);
+struct aes128_result aes128_ctr_encrypt(uint8_t* plaintext, size_t text_size, uint8_t* key, uint8_t* iv, int paddingmode);
 
 /// <summary>
 /// Decrypts a message using AES-128.
@@ -48,6 +48,8 @@ struct aes128_result aes128_ctr_encrypt(uint8_t* plaintext, size_t text_size, ui
 /// <returns>
 /// The decrypted plaintext.
 /// </returns>
-struct aes128_result aes128_ctr_decrypt(uint8_t* ciphertext, size_t text_size, uint8_t* key, uint8_t* iv);
+struct aes128_result aes128_ctr_decrypt(uint8_t* ciphertext, size_t text_size, uint8_t* key, uint8_t* iv, int paddingmode);
+
+void aes128_free_result(struct aes128_result res);
 
 #endif
