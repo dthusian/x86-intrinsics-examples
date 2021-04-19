@@ -3,6 +3,9 @@ obj/
 bin/
 
 Debug/
+Release/
+x64/
+x86/
 *.user
 *.suo
 

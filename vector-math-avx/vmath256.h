@@ -2,6 +2,7 @@
 #define X86_EXAMPLES_VMATH256_H
 
 #include<stdint.h>
+#include<stddef.h>
 
 /// <summary>
 /// Elementwise adds each element of array a with the corresponding element in array b, and

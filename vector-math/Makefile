@@ -1,5 +1,4 @@
 .RECIPEPREFIX = >
-CFLAGS += -msse2 -O2 -Wno-incompatible-pointer-types
+CFLAGS += -msse2 -O2 -Wno-incompatible-pointer-types -fno-tree-vectorize -fno-tree-slp-vectorize
 all:
-> $(CC) $(CFLAGS) -c vmath.c -o vector-math.o
-> $(AR) rcs vector-math.a vector-math.o
+> $(CC) $(CFLAGS) main.c vmath.c -o vector-math

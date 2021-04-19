@@ -84,6 +84,7 @@
     <Text Include="Makefile">
       <FileType>Document</FileType>
     </Text>
+    <ClCompile Include="main.c" />
     <ClCompile Include="vmath256.c" />
   </ItemGroup>
   <ItemGroup>
