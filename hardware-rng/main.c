@@ -7,8 +7,9 @@
 int main() {
   // 256-bit nonces are useful for a variety of things
   const size_t nonce_size = 256 / 8;
-  uint8_t* nonce = malloc(nonce_size); 
-  rand_fill_buf_align32(nonce, nonce_size);
+  uint8_t* nonce = malloc(nonce_size);
+  if (nonce == NULL) return 1;
+  rand_fill_buf_align32((uint32_t*)nonce, nonce_size);
   printf("Generating a 256-bit nonce with x86 intrinsics:\n");
   printf("hex: ");
   for (int i = 0; i < nonce_size; i++) {

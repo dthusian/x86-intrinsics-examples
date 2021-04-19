@@ -5,3 +5,6 @@ bin/
 Debug/
 *.user
 *.suo
+
+*.o
+*.a

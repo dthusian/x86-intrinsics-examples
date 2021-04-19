@@ -19,11 +19,12 @@ uint32_t rand_next_uint32() {
 
 uint64_t rand_next_uint64() {
   uint64_t ret;
-  while (!_rdrand64_step(&ret));
+  while (!_rdrand64_step((unsigned long long*)&ret));
   return ret;
 }
 
 void rand_fill_buffer(uint8_t* buf, size_t size) {
+  // Fill the buffer with 32-bit ints as much as the size allows
   uint32_t* buf32 = (uint32_t*)buf;
   for (size_t i = 0; i < size >> 2; i++) {
     uint32_t generated = rand_next_uint32();
@@ -31,7 +32,7 @@ void rand_fill_buffer(uint8_t* buf, size_t size) {
   }
   // Last unaligned part
   // Use bit magic to get the size of the part still not filled
-  uint32_t bytescopied = (size & 0xFFFFFFFC);
+  uint32_t bytescopied = (size & 0xFFFFFFFFFFFFFFFCull);
   for (size_t i = 0; i < size - bytescopied; i++) {
     // Here we generate a 16-bit integer and then truncate it to 8 bits
     uint16_t generated = rand_next_uint16();

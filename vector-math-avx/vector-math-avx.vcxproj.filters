@@ -5,9 +5,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="vmath256.c" />
-    <ClCompile Include="main.c" />
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Makefile" />
   </ItemGroup>
 </Project>

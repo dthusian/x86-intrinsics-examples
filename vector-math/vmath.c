@@ -10,8 +10,8 @@ void vmath_add_i8(int8_t* a, const int8_t* b, size_t sz) {
   size_t i = 0;
   for (i = 0; i < sz; i += 16) { // i += 16 because SIMD handles 16 elements at once, m128 / int8 = 16
     // __m128i represents integers inside a 128-bit register
-    __m128i mma = _mm_loadu_epi8(a + i); // _mm_loadu_epi8 gets 128 bits of memory and stores them in the __m128 register
-    __m128i mmb = _mm_loadu_epi8(b + i); // You may see people use _mm_load_*. Those functions require the pointer to be aligned to 16-byte boundaries. _mm_loadu_* doesn't need this.
+    __m128i mma = _mm_loadu_si128(a + i); // _mm_loadu_epi8 gets 128 bits of memory and stores them in the __m128 register
+    __m128i mmb = _mm_loadu_si128(b + i); // You may see people use _mm_load_*. Those functions require the pointer to be aligned to 16-byte boundaries. _mm_loadu_* doesn't need this.
     __m128i mmc = _mm_add_epi8(mma, mmb); // _mm_add_epi8 interprets the 128-bit registers as 16x 8-bit integers and adds them
     _mm_storeu_si128((__m128*)(a + i), mmc); // There is no _mm_storeu_epi8, all integer instructions use _mm_storeu_si128.
   }
@@ -25,8 +25,8 @@ void vmath_add_i8(int8_t* a, const int8_t* b, size_t sz) {
 void vmath_add_i16(int16_t* a, const int16_t* b, size_t sz) {
   size_t i = 0;
   for (i = 0; i < sz; i += 8) { // i += 8, 8 elements at once, m128 / int16 = 8
-    __m128i mma = _mm_loadu_epi16(a + i); // Using _mm_loadu_* like before
-    __m128i mmb = _mm_loadu_epi16(b + i);
+    __m128i mma = _mm_loadu_si128(a + i); // Using _mm_loadu_* like before
+    __m128i mmb = _mm_loadu_si128(b + i);
     __m128i mmc = _mm_add_epi16(mma, mmb); // Note how instead of epi8, we write epi16. This is because the integers should be interpreted as int16.
     _mm_storeu_si128((__m128*)(a + i), mmc);
   }
@@ -40,8 +40,8 @@ void vmath_add_i16(int16_t* a, const int16_t* b, size_t sz) {
 void vmath_add_i32(int32_t* a, const int32_t* b, size_t sz) {
   size_t i = 0;
   for (i = 0; i < sz; i += 4) { // m128 / int32 = 4
-    __m128i mma = _mm_loadu_epi32(a + i); // Use the *_epi32 family of functions to manipulate int32.
-    __m128i mmb = _mm_loadu_epi32(b + i);
+    __m128i mma = _mm_loadu_si128(a + i); // Use the *_epi32 family of functions to manipulate int32.
+    __m128i mmb = _mm_loadu_si128(b + i);
     __m128i mmc = _mm_add_epi32(mma, mmb);
     _mm_storeu_si128((__m128*)(a + i), mmc);
   }
@@ -55,8 +55,8 @@ void vmath_add_i32(int32_t* a, const int32_t* b, size_t sz) {
 void vmath_add_i64(int64_t* a, const int64_t* b, size_t sz) {
   size_t i = 0;
   for (i = 0; i < sz; i += 2) { // m128 / int64 = 2. Note how the larger numerical types get slower and slower. If you can, use a shorter type.
-    __m128i mma = _mm_loadu_epi64(a + i); // You probably know the drill by now. *_epi64
-    __m128i mmb = _mm_loadu_epi64(b + i);
+    __m128i mma = _mm_loadu_si128(a + i); // You probably know the drill by now. *_epi64
+    __m128i mmb = _mm_loadu_si128(b + i);
     __m128i mmc = _mm_add_epi64(mma, mmb);
     _mm_storeu_si128((__m128*)(a + i), mmc);
   }
