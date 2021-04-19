@@ -6,7 +6,7 @@ Examples:
 - `vector-math`: Vectorised math
 - `vector-math-avx`: Faster vectorised math with AVX
 - `hardware-rng`: Hardware random number generation
-- `aes-new-instructions`: AES Encryption using AES-NI
+- `aes-new-instructions`: AES implemented with specialized intrinsics
 
 You can use [Intel's Intrinsics reference](https://software.intel.com/sites/landingpage/IntrinsicsGuide/#!)
 for finding specific functions.
