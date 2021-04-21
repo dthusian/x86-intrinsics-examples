@@ -33,19 +33,19 @@ int sse_strcmp(const char* a, const char* b) {
   return 0;
 }
 
-char* sse_strchr(const char* str, int c) {
+const char* sse_strchr(const char* str, int c) {
   __m128i vc = _mm_set1_epi8(c);
   while (1) {
     __m128i vs = _mm_loadu_si128(str);
-    // Use EQUAL_EACH to check whether any character in the string is equal to c.
-    if (_mm_cmpistrc(vs, vc, _SIDD_CMP_EQUAL_EACH | _SIDD_NEGATIVE_POLARITY)) {
-      int idx = _mm_cmpistri(vs, vc, _SIDD_CMP_EQUAL_EACH | _SIDD_NEGATIVE_POLARITY);
+    // Use EQUAL_ANY to check whether any character in the string is equal to c.
+    if (_mm_cmpistrc(vs, vc, _SIDD_CMP_EQUAL_ANY)) {
+      int idx = _mm_cmpistri(vs, vc, _SIDD_CMP_EQUAL_ANY);
       return str + idx;
     }
-    else if (_mm_cmpistrz(vs, vc, _SIDD_CMP_EQUAL_EACH | _SIDD_NEGATIVE_POLARITY)) {
+    else if (_mm_cmpistrz(vs, vc, _SIDD_CMP_EQUAL_ANY)) {
       return NULL;
     }
     str += 16;
   }
+  return str;
 }
-
