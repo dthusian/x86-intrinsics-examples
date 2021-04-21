@@ -20,6 +20,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aes-new-instructions", "aes
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "string-operations", "string-operations\string-operations.vcxproj", "{D6CC8D34-C5FE-4C48-9061-1818A26AFA4E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "histogram-avx512", "histogram-avx512\histogram-avx512.vcxproj", "{9D7D4D58-E207-49BB-B335-775A3B701E78}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -60,6 +62,14 @@ Global
 		{D6CC8D34-C5FE-4C48-9061-1818A26AFA4E}.Release|x64.Build.0 = Release|x64
 		{D6CC8D34-C5FE-4C48-9061-1818A26AFA4E}.Release|x86.ActiveCfg = Release|Win32
 		{D6CC8D34-C5FE-4C48-9061-1818A26AFA4E}.Release|x86.Build.0 = Release|Win32
+		{9D7D4D58-E207-49BB-B335-775A3B701E78}.Debug|x64.ActiveCfg = Debug|x64
+		{9D7D4D58-E207-49BB-B335-775A3B701E78}.Debug|x64.Build.0 = Debug|x64
+		{9D7D4D58-E207-49BB-B335-775A3B701E78}.Debug|x86.ActiveCfg = Debug|Win32
+		{9D7D4D58-E207-49BB-B335-775A3B701E78}.Debug|x86.Build.0 = Debug|Win32
+		{9D7D4D58-E207-49BB-B335-775A3B701E78}.Release|x64.ActiveCfg = Release|x64
+		{9D7D4D58-E207-49BB-B335-775A3B701E78}.Release|x64.Build.0 = Release|x64
+		{9D7D4D58-E207-49BB-B335-775A3B701E78}.Release|x86.ActiveCfg = Release|Win32
+		{9D7D4D58-E207-49BB-B335-775A3B701E78}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
