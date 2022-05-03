@@ -37,17 +37,16 @@ int32_t* histogram_i32(int32_t* data, int32_t bucketsize, int32_t nbuckets, size
     Histogram after scattering:   { 1, 1, 3, 4, 1, 2 }
 
     Notice how the histogram at index 1 is only 1 even though there were
-    multiple data pnts that would fall into bucket 1.
-    */
+    multiple data points that would fall into bucket 1.
 
-    // That's where the AVX-512-CD instruction set comes in.
-    // Included in the set is the instructions VPCONFLICTD and VPCONFLICTQ,
-    // (and their corresponding intrinsics _mm*_conflict_epi*)
 
-    // What these instructions do is basically an in-vector equality check with
-    // every other element in the vector.
+    That's where the AVX-512-CD instruction set comes in.
+    Included in the set is the instructions VPCONFLICTD and VPCONFLICTQ,
+     (and their corresponding intrinsics _mm*_conflict_epi*)
 
-    /*
+    What these instructions do is basically an in-vector equality check with
+    every other element in the vector.
+
     Here we illustrate the operation of VPCONFLICTD/Q
 
     Vector: { 2, 3, 1, 4, 2, 5, 0, 3 }
