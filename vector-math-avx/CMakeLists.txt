@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.13)
-project(vector_math)
+project(vector_math_avx)
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -mavx2")
 
